@@ -23,7 +23,8 @@ client gets satisfied by the servlets.
 ---
 
 ### Q2. What is Servlet? Explain the life cycle of servlet. Write a servelet  to display HELLO WORLD?
-    A servlet is a Java programming language class used to extend the capabilities of servers that host applications accessed via a request-response programming model. Servlets are typically used to extend the functionality of web servers by processing and responding to HTTP requests from clients, such as web browsers.
+
+- A servlet is a Java programming language class used to extend the capabilities of servers that host applications accessed via a request-response programming model. Servlets are typically used to extend the functionality of web servers by processing and responding to HTTP requests from clients, such as web browsers.
 
 The life cycle of a servlet consists of several phases:
 (Diagram from book)
