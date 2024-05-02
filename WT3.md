@@ -24,17 +24,17 @@ client gets satisfied by the servlets.
 
 ### Q2. What is Servlet? Explain the life cycle of servlet. Write a servelet  to display HELLO WORLD?
 
-- A servlet is a Java programming language class used to extend the capabilities of servers that host applications accessed via a request-response programming model. Servlets are typically used to extend the functionality of web servers by processing and responding to HTTP requests from clients, such as web browsers.
+- A servlet is a Java programs that runs on web browser used to extend the capabilities of servers that host applications accessed via a request-response programming model. Servlets are typically used to extend the functionality of web servers by processing and responding to HTTP requests from clients, such as web browsers.
 
 The life cycle of a servlet consists of several phases:
-(Diagram from book)
+(Diagram secode 3-5)
 1. **Loading**: When a servlet container (such as Tomcat or Jetty) starts or when a request is received for the servlet and no instance currently exists, the container loads the servlet class. It does this by invoking the `init()` method of the servlet.
 
-2. **Initialization**: In this phase, the servlet container initializes the servlet by calling its `init()` method. This method is called only once during the lifecycle of the servlet. It is used for tasks such as loading configuration data, establishing database connections, or initializing other resources required by the servlet.
+2. **Initialization(init())**: In this phase, the servlet container initializes the servlet by calling its `init()` method. This method is called only once during the lifecycle of the servlet. It is used for tasks such as loading configuration data, establishing database connections, or initializing other resources required by the servlet.
 
-3. **Request Handling**: Once the servlet is initialized, it is ready to handle client requests. During this phase, the servlet container calls the `service()` method for each incoming request. The `service()` method determines the type of request (GET, POST, etc.) and invokes the appropriate method (`doGet()`, `doPost()`, etc.) to handle the request.
+3. **Request Handling(service())**: Once the servlet is initialized, it is ready to handle client requests. During this phase, the servlet container calls the `service()` method for each incoming request. The `service()` method determines the type of request (GET, POST, etc.) and invokes the appropriate method (`doGet()`, `doPost()`, etc.) to handle the request.
 
-4. **Destroying**: When the servlet container decides to take the servlet out of service (usually because the server is shutting down or the servlet is being replaced), it calls the `destroy()` method of the servlet. This allows the servlet to release any resources it has acquired during its lifecycle.
+4. **Destroying(destroy())**: When the servlet container decides to take the servlet out of service (usually because the server is shutting down or the servlet is being replaced), it calls the `destroy()` method of the servlet. This allows the servlet to release any resources it has acquired during its lifecycle.
 
 5. **Unloading**: Finally, the servlet container unloads the servlet class, freeing up memory and other resources associated with it.
 
@@ -240,7 +240,7 @@ By using a DTD, we ensure that the XML document adheres to the specified structu
 
 ---
 
-### Q5. What are the strengths of XML technology? Explain the need of XML? Also tell the limitations of XML
+### Q6. What are the strengths of XML technology? Explain the need of XML? Also tell the limitations of XML
 
 XML (Extensible Markup Language) has several strengths that make it a valuable technology for various applications:
 
@@ -277,7 +277,7 @@ Despite its strengths, XML also has some limitations:
 Despite these limitations, XML remains a widely-used technology for data interchange, document representation, and integration in various domains. Its strengths outweigh its drawbacks in many scenarios, especially where interoperability, extensibility, and structured data representation are paramount.
 
 ---
-### Q6. How to apply style in XML? Explain with proper example
+### Q7. How to apply style in XML? Explain with proper example
 To apply the CSS style to XML tags we must have to create a CSS file and include that CSS file in XML document using
 
 <?xml-stylesheet>
