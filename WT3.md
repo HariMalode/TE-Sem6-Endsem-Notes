@@ -2,7 +2,7 @@
 
 
 1. A servlet is a Java program that runs on a web server, designed to handle client requests and generate dynamic responses. Servlets are the Java equivalent of CGI (Common Gateway Interface) scripts and serve as the backbone of many web applications.
-2. Diagram decode 3-2
+2. <img title="a title" alt="JSP MVC" src="./images/servelet.png" width="600" height="300" />
 3. 1. When a client make a request for some servlet, he/she actually uses the Web
 browser in which request is written as a URL.
     2. The web browser then sends this request to Web server. The web server first
@@ -166,7 +166,9 @@ Let's break down the components of a DTD and how they work:
 
    Here's an example of an attribute declaration for a `price` attribute within a `<book>` element:
    ```
-   <flag type="True">
+   <student id="12345">
+   ..
+   </student>
    ```
 
 3. **Schema**: While DTDs provide a simple and widely supported way to define the structure of XML documents, they have limitations in expressing more complex data models and constraints. XML Schema (XSD) is an alternative to DTDs that addresses some of these limitations by offering more advanced validation capabilities.
@@ -177,7 +179,7 @@ In summary, DTDs are used to define the structure, elements, and attributes of X
 
 ---
 ### Q5. Explain  the concept of XML. Explain DTDs with example to use DTD in XML File
-XML, or Extensible Markup Language, is a versatile and widely-used markup language designed to store and transport data in a structured format. Unlike HTML, which is primarily used for displaying data on web pages, XML focuses on describing the structure and content of data in a machine-readable format. XML is commonly used for data interchange between different systems and platforms, as well as for configuration files, document storage, and more.
+XML, or Extensible Markup Language, is a versatile and widely-used markup language designed to store and transport data in a structured format. Unlike HTML, which is primarily used for representation data on web pages, XML focuses on describing the structure and content of data in a machine-readable format. XML is commonly used for data interchange between different systems and platforms, as well as for configuration files, document storage, and more.
 
 The key concepts of XML include:
 
@@ -248,7 +250,7 @@ XML (Extensible Markup Language) has several strengths that make it a valuable t
 
 2. **Platform Independence**: XML is platform-independent, meaning it can be processed and interpreted by different software applications on various operating systems without modification. This interoperability is essential for data exchange between heterogeneous systems.
 
-3. **Human and Machine Readable**: XML documents are both human-readable and machine-readable. The syntax is straightforward and understandable, making it easy for developers to create and manipulate XML documents. Additionally, XML parsers and tools are available for processing XML data programmatically.
+3. **Human and Machine Readable**: XML documents are both human-readable and machine-readable. The syntax is straightforward and understandable, making it easy for developers to create and manipulate XML documents. Additionally, XML parsers and tools are available for processing XML data programmatically. *We can edit XML document in simple text editor*
 
 4. **Extensibility**: XML is extensible, allowing users to define their own markup languages and document structures. This flexibility enables the adaptation of XML to different use cases and domains, making it suitable for a wide range of applications.
 

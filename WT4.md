@@ -1,6 +1,6 @@
 ### Q1. Explain the concept of JSP with syntax and sample example. Explain the analogy of JSP and Servlets.
 - JSP stands for Java Server Pages
-- It is an alternative way than the servlet to build the dynamic we pages
+- It is an alternative way than the servlet to build the dynamic web pages
 - It allows Java code to be embedded into HTML pages, enabling the creation of dynamic content that can be generated based on user input, database queries, or other conditions.
 
 Example:
