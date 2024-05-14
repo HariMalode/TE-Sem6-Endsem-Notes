@@ -291,7 +291,7 @@ Certainly! Here's a detailed note on each topic:
 
 **1. Removing Duplicates from Dataset:**
 
-Duplicates in a dataset can skew analysis results and lead to incorrect insights. It's essential to identify and remove duplicates to ensure the integrity and accuracy of the data. Here's how to handle duplicates effectively:
+Duplicates in a dataset can provide incomplete results and lead to incorrect insights. It's essential to identify and remove duplicates to ensure the integrity and accuracy of the data. Here's how to handle duplicates effectively:
 
 - **Identifying Duplicates**: Before removing duplicates, it's crucial to identify them. Duplicates can occur across all columns or specific columns in a dataset. Use pandas or other data manipulation tools to identify duplicates based on selected columns.
 
