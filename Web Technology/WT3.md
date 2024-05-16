@@ -1,9 +1,12 @@
 ### Q1. Describe servelet architecture with advantages?
 
 
-1. A servlet is a Java program that runs on a web server, designed to handle client requests and generate dynamic responses. Servlets are the Java equivalent of CGI (Common Gateway Interface) scripts and serve as the backbone of many web applications.
-2. <img title="a title" alt="JSP MVC" src="./images/servelet.png" width="600" height="300" />
-3. 1. When a client make a request for some servlet, he/she actually uses the Web
+1. A servlet is a Java program that runs on a web server, designed to handle client requests and generate dynamic responses. 
+
+2. - <img title="Servelet" alt="Servelet" src="./images/servelet.png" width="600" height="300" />
+
+3. Overview:
+    1. When a client make a request for some servlet, he/she actually uses the Web
 browser in which request is written as a URL.
     2. The web browser then sends this request to Web server. The web server first
 finds the requested servlet.
@@ -27,7 +30,8 @@ client gets satisfied by the servlets.
 - A servlet is a Java programs that runs on web browser used to extend the capabilities of servers that host applications accessed via a request-response programming model. Servlets are typically used to extend the functionality of web servers by processing and responding to HTTP requests from clients, such as web browsers.
 
 The life cycle of a servlet consists of several phases:
-(Diagram secode 3-5)
+<img title="Servelet" alt="ServeletLifeCycle" src="./images/ServeletLofeCycle.png" width="600" height="300" />
+
 1. **Loading**: When a servlet container (such as Tomcat or Jetty) starts or when a request is received for the servlet and no instance currently exists, the container loads the servlet class. It does this by invoking the `init()` method of the servlet.
 
 2. **Initialization(init())**: In this phase, the servlet container initializes the servlet by calling its `init()` method. This method is called only once during the lifecycle of the servlet. It is used for tasks such as loading configuration data, establishing database connections, or initializing other resources required by the servlet.
@@ -88,7 +92,8 @@ There are three commonly used techniques used for session tracking and those are
 
 2. **Cookies**: Cookies are small pieces of data stored on the user's browser. They can be used to store session identifiers or other session-related information. When the user makes subsequent requests to the server, the browser automatically sends the cookie data along with the request, allowing the server to identify the user's session.
 
-3. **URL Rewriting**:(Digram from decode 3-16) In this technique, the session identifier is appended to the URL of each page requested by the user. This identifier can then be used by the server to associate requests with a specific session. While simple, this approach may expose session identifiers in the URL, which can be a security risk.
+3. **URL Rewriting**: In this technique, the session identifier is appended to the URL of each page requested by the user. This identifier can then be used by the server to associate requests with a specific session. While simple, this approach may expose session identifiers in the URL, which can be a security risk.
+<img title="URLRewritin" alt="URLRewritin" src="./images/URLRewriting.png" width="600" height="400" />
 
 Now, let's dive into URL Writing and Cookies in the context of servlets with an example:
 
@@ -151,7 +156,7 @@ In this servlet:
 ---
 
 ### Q4. What are DTD?,Explain how they work? Explain DTD : Schema,elements,attributes
-DTD stands for Document Type Definition. It's a markup language used to define the structure and legal elements and attributes of an XML (Extensible Markup Language) document. DTDs play a crucial role in validating XML documents against a predefined set of rules.
+DTDs, or Document Type Definitions, are a way to formally define the structure and rules for an XML document. DTDs specify the allowed elements, attributes, and their relationships within an XML document. They provide a schema-like mechanism for validating XML documents against a predefined set of rules.
 
 Let's break down the components of a DTD and how they work:
 
@@ -246,17 +251,17 @@ By using a DTD, we ensure that the XML document adheres to the specified structu
 
 XML (Extensible Markup Language) has several strengths that make it a valuable technology for various applications:
 
+**Simplacity**: XML is simple to understand. Easy to interpret. We can edit XML document in simple text editor
+
 1. **Structured Data Representation**: XML allows for the representation of structured data in a hierarchical format. This makes it suitable for storing and exchanging complex data structures, such as documents, configurations, and data records.
 
 2. **Platform Independence**: XML is platform-independent, meaning it can be processed and interpreted by different software applications on various operating systems without modification. This interoperability is essential for data exchange between heterogeneous systems.
 
-3. **Human and Machine Readable**: XML documents are both human-readable and machine-readable. The syntax is straightforward and understandable, making it easy for developers to create and manipulate XML documents. Additionally, XML parsers and tools are available for processing XML data programmatically. *We can edit XML document in simple text editor*
+3. **Human and Machine Readable**: XML documents are both human-readable and machine-readable. The syntax is straightforward and understandable, making it easy for developers to create and manipulate XML documents. Additionally, XML parsers and tools are available for processing XML data programmatically. 
 
-4. **Extensibility**: XML is extensible, allowing users to define their own markup languages and document structures. This flexibility enables the adaptation of XML to different use cases and domains, making it suitable for a wide range of applications.
+4. **Extensibility**: XML is extensible, allowing users to define their own elements markup languages and document structures. This flexibility enables the adaptation of XML to different use cases and domains, making it suitable for a wide range of applications.
 
-5. **Standardization**: XML is a standardized technology maintained by organizations such as the World Wide Web Consortium (W3C). This standardization ensures consistency and compatibility across different XML implementations and tools.
-
-6. **Support for Metadata**: XML supports the inclusion of metadata within documents, providing additional information about the content and structure of the data. This metadata can be used for documentation, validation, and data processing purposes.
+5. **Support for Metadata**: XML supports the inclusion of metadata within documents, This metadata can be used for documentation, validation, and data processing purposes.
 
 Now, let's discuss the need for XML:
 
@@ -464,7 +469,8 @@ Overall, AJAX is a powerful technique for creating interactive and responsive we
 
 AJAX (Asynchronous JavaScript and XML) is a powerful technique used in web development to create interactive and dynamic web applications. It allows web pages to send and receive data from a server asynchronously without interfering with the display and behavior of the existing page. AJAX enables smoother and faster user experiences by updating parts of a web page dynamically, without requiring a full page reload.
 
-**Working of AJAX:** (Diagram decode 3-45)
+**Working of AJAX:** 
+<img title="AjaxWorking" alt="AjaxWorking" src="./images/AjaxWorking.png" width="600" height="300" />
 
 The working of AJAX involves several key components and steps:
 
@@ -656,6 +662,14 @@ This servlet listens for POST requests on the URL pattern `/MaxNumberServlet`. I
 **Transforming XML Document:**
 
 XML transformation refers to the process of converting an XML document from one format to another, often using XSLT (eXtensible Stylesheet Language Transformations). XSLT is a powerful language for transforming XML documents into different structures or formats, such as HTML, XHTML, XML, or plain text. 
+
+- XSLT is used to transform XML document from one form to another form.
+- XSLT uses Xpath to perform matching of nodes to perform these transformation .
+- The result of applying XSLT to XML document could be an another XML document, HTML, text or any another document from technology perspective.
+- The XSL code is written within the XML document with the extension of (.xsl).
+In other words, an XSLT document is a different kind of XML document.
+
+<img title="XSLTransform" alt="XSLTransform" src="./images/XSLTransform.png" width="600" height="300" />
 
 **Key Components:**
 
