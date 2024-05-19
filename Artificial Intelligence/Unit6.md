@@ -293,3 +293,76 @@ In AI planning, different approaches tackle achieving goals in various situation
 * **Description:** Learning-based planning involves learning models or policies from data.
 * **Analysis:** It enables adaptive and data-driven planning in complex and uncertain environments.It learn from data and improve planning performance over time.
 * **Applications:**Learning-based planning is used in domains where learning from experience is essential, such as robotics, autonomous systems, game playing.
+
+
+### Q10. Explain Classical planning and its advantage with example
+
+
+Imagine you're baking a cake. Classical planning in AI is like having a perfect recipe that guarantees a delicious outcome, every single time. Here's why it's advantageous in certain situations:
+
+**Classical Planning Explained:**
+
+* **Simple and Clear:**  Classical planning assumes a perfect world for the AI. It knows everything about the starting situation (ingredients you have), what each step does (mixing, baking), and has a clear goal (a yummy cake). 
+* **Guaranteed Success:**  With this complete information, classical planning can find a sequence of actions (recipe steps) that are guaranteed to reach the goal (perfectly baked cake).  Imagine following a detailed recipe where every step is precise –  you can't go wrong!
+
+**Advantages of Classical Planning:**
+
+* **Efficiency:**  Since the environment is predictable, classical planning algorithms can find solutions quickly and efficiently. It's like following a tried-and-tested recipe – you know exactly what to do and how long it will take.
+* **Easy to Understand:**  The logic behind classical planning is straightforward, making it a good foundation for understanding more complex planning approaches in AI. 
+
+**Example:**
+
+Imagine a robot cleaning a room in a simple, predictable environment. Classical planning would involve:
+
+* **Initial State:**  Knowing the location of dirt piles and furniture.
+* **Goal State:**  A clean room with no dirt piles.
+* **Actions:**  Move forward, turn left/right, pick up dirt.
+
+* **Real World Isn't Perfect:**  The real world is messy! Sensors might be limited, things might change unexpectedly (like a spilled drink), and not everything is perfectly predictable. Classical planning struggles in these situations.
+
+Even though it has limitations, classical planning is a valuable tool for AI because it provides a solid foundation for understanding planning problems and serves as a stepping stone for more complex planning approaches used in real-world scenarios. 
+
+
+
+### Q11. Write note on Hierarchical Planning.
+-  Q9. 2nd Point Expand it
+
+### Q12. Write a short note on planning agent , state goal and action
+
+**Planning Agent:**
+1. Decision-Making Entity: A planning agent is an intelligent entity capable of making decisions based on its analysis of the environment and its goals. It assesses available options, generates plans, and selects actions to achieve desired objectives.
+2. Utilization of Planning Algorithms: Planning agents leverage various planning algorithms and techniques to generate plans tailored to specific problem domains. These algorithms include classical planning, hierarchical planning, and probabilistic planning, among others.
+3. Adaptive Behavior: Planning agents exhibit adaptive behavior by continuously assessing and updating their plans in response to changes in the environment or new information. They adapt their strategies to overcome obstacles and achieve goals efficiently.
+
+**State:**
+1. Representation of Environment: A state represents the configuration or snapshot of the environment at a specific point in time. It encapsulates all relevant information about the current situation, including the positions of objects, their properties, and any other relevant factors.
+2. Foundation for Reasoning: States provide the foundation for reasoning and decision-making within the planning process. Planning agents analyze the current state of the environment to assess available options, evaluate their consequences, and formulate plans to achieve desired goals.
+3. Dynamic Nature: States are dynamic and can change over time as a result of agent actions, environmental interactions, or external events. Planning agents continuously monitor changes in the environment and update their understanding of the state to adapt their plans accordingly.
+
+**Goal:**
+1. Desired Outcome: A goal represents the desired outcome or state that a planning agent aims to achieve through planning. It defines the objectives or targets that the agent seeks to accomplish within the environment.
+2. Guiding Principle: Goals serve as guiding principles for planning agents, directing their efforts and actions towards achieving specific objectives. Planning agents formulate plans and select actions that align with their goals to maximize the likelihood of success.
+3. Flexibility and Adaptability: Goals provide flexibility and adaptability within the planning process, allowing agents to pursue multiple objectives simultaneously or adjust their goals in response to changing circumstances. Planning agents prioritize goals based on their importance and feasibility, optimizing their plans to achieve the best possible outcomes.
+
+### Q13. Explain different components of planning system
+
+A planning system comprises several essential components:
+
+1. **Problem Representation:** This is like the blueprint for the planning problem. It defines how the state and the goals are described in a way the system can understand. Imagine a robot cleaning a room. The representation might include:
+
+- States: The location of dirt piles, furniture, and the robot itself.
+- Actions: Move forward, turn left/right, pick up dirt.
+- Goal: A clean room with no dirt piles.
+
+2. **Search Algorithm:** This is the core engine that explores different possibilities to reach the goal. Think of it like the robot trying various cleaning sequences. Common search algorithms include:
+
+- Breadth-First Search (BFS): Systematically explores all possible paths one step at a time, ensuring all options are considered. (Imagine the robot cleaning every corner methodically)
+- Depth-First Search (DFS): Explores one path deeply until it reaches a dead end or the goal, then backtracks and tries another path. (Imagine the robot cleaning a specific area thoroughly before moving on)
+
+3. **Knowledge Base:** The knowledge base stores domain-specific information, such as facts, rules, constraints, and heuristics, relevant to the planning problem. This information guides the planning process by providing insights into the structure of the problem domain and informing decision-making.
+
+4. **Plan Generation:** Plan generation involves generating a sequence of actions that achieves the desired goals when executed in the environment. The planning system analyzes the problem representation, explores possible action sequences using the search algorithm, and selects a plan that satisfies the specified criteria.
+
+5. **Execution Engine:** The execution engine is responsible for executing the generated plan in the environment by applying the selected actions and observing their effects. It interacts with the external world, monitors the execution process, and updates the state of the environment based on the executed actions.
+
+6. **Monitoring and Adaptation:** Constantly evaluating plan execution, this component adjusts strategies in response to environmental changes or unexpected events, ensuring system resilience and effectiveness.
