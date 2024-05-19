@@ -458,6 +458,8 @@ In the context of search algorithms, a heuristic function is used to estimate th
 
 Monte Carlo Tree Search (MCTS) is a powerful algorithm used for decision-making in games, simulations, and other applications where perfect information  isn't available. It balances exploration (finding new possibilities) and exploitation (leveraging what's already known) through a series of simulations. Here's a breakdown of the key steps involved:
 
+<img src="./images/MonteCarlo.png" width="800">
+
 **1. Selection:**
 
 * The algorithm starts at the root node representing the initial game state.
