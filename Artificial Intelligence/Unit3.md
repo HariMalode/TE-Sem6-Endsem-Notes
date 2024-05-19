@@ -1,25 +1,13 @@
 # Adversarial Search and Games
 
-### Q1.List all problem solving strategies. What is backtracking, explain with n queen problem
-### Q2. Write Minimax search algorithm fro two players. How use of alpha and beta cutoffs will improve performance
-### Q3. Define Game theroy, differentiate between stochastic and partial games with examples.
-### Q4. Define is Constraint satisfaction problem, State the types of consistencies Solve the following Crypt Arithmetic Problem.
- B A S E
-+B A L L
---------
-G A M E S
+
 ### Q5. What are the issues that need to be addressed for solving CSP efficiently? Explain the solutions of them.
 ### Q6. Explain heuristic function that can be used in cutting off search in detail.
 ### Q7. Explain Alpha-Beta tree search and cutoff procedure in detail with an example.
-### Q8. Define constraints in CSPs. Explain any two types of constraints in detail.
-### Q9. What are the limitations of Game search algorithms?
-### Q10. List all problem solving strategies. What is backtracking. explain with n queen problem, with branch and bound or backtracking.
+
 ### Q11. Explain Monte Carlo Tree Search with all steps and Demonstrate with one Example.
-### Q12. i. Explain limitations of game search algorithm, Differentiate between stochastic and partial games AND. ii. Explain how use of alpha and beta cut-offs will improve performance of mini max algorithm?
-### Q12. Define is constraint satisfaction problem, State the types of consistencies. Solve the following Crypt Arithmetic Problem.
-SEND
-+ MORE
-MONEY
+### 
+### Q12. 
 ### Q13. Explain Alpha Beta Tree search and cutoff procedure in detail with example.
 ### Q14. What are the issues that need to be addressed for solving esp efficiently? Explain the solutions to them.
 ### Q15. Explain in detail the concepts of back tracking and constraint propagation and solve the N-queen problem using these algorithms.
@@ -30,9 +18,420 @@ SEND + MORE = MONEY. (TWO TWO FOUR, CROSS+ ROADS DANGER)
 ### Q19. Explain heuristic function that can be used in cutting off search in detail.
 ### Q19. Explain alpha-beta tree search and cutoff procedure in detail with an example..
 ### Q19. Define constraints in CSPs. Explain any two types of Constrains in detail.
-### Q19. What are the limitations of game search algorithms ?
 ### Q19. Explain min max and alpha beta pruning algorithm for adversarial search with example.
 ### Q19. Define and explain constraints satisfaction problem.
 ### Q19. Explain with example graph coloring problem.
 ### Q19. How Al technique is used to solve tic-tac-toe problem.
 ### Q19. Explain Wumpus world environment giving its PEAS description.
+
+
+
+----
+
+### Q1.List all problem solving strategies. What is backtracking, explain with n queen problem
+
+In the context of artificial intelligence, problem-solving strategies are essential techniques used to find solutions to complex problems. 
+
+1. **State Space Search**:
+    - Involves exploring all possible states of a problem to find a solution.
+    - Each state represents a configuration of the problem.
+    - The search begins at an initial state and moves through a series of intermediate states to reach a goal state.
+
+2. **Problem Reduction**:
+    - Decomposes a complex problem into smaller, more manageable sub-problems.
+    - Each sub-problem is solved individually, and their solutions are combined to solve the original problem.
+
+3. **Heuristic Search Algorithms**:
+    - Uses heuristics, which are strategies or guidelines, to direct the search towards the goal more efficiently.
+    - **Informed/Directed Heuristic Search**:
+        - **Hill Climbing**: Continuously moves towards the highest value neighbor state, aiming to find the peak (optimal solution).
+        - **Branch and Bound**: Involves branching out to explore possible solutions and using bounds to eliminate suboptimal solutions.
+    - **Uninformed/Blind Heuristic Search**:
+        - **Breadth-First Search (BFS)**: Explores all nodes at the present depth level before moving on to nodes at the next depth level.
+        - **Depth-First Search (DFS)**: Explores as far down a branch as possible before backtracking and exploring other branches.
+
+
+**Backtracking:**
+
+Backtracking is a search algorithm used to solve problems incrementally by trying out different solutions and eliminating those that do not meet the required criteria. It is a systematic method of exploring all possible configurations to find a solution to a given problem, particularly useful in constraint satisfaction problems such as puzzles, mazes, and combinatorial optimization problems.
+
+**Key Concepts of Backtracking:**
+
+1. **Recursive Search**: Backtracking is typically implemented using recursion, where the algorithm tries to build a solution incrementally.
+2. **Decision Tree**: The process can be visualized as a decision tree where each node represents a partial solution, and branches represent decisions or extensions of the partial solution.
+3. **Pruning**: At each step, the algorithm checks whether the current partial solution can possibly lead to a valid solution. If not, it "backtracks" by discarding the current path and returns to the previous step to try a different path.
+4. **Feasibility Check**: Before extending the solution, the algorithm checks whether the current partial solution is still valid under the given constraints.
+5. **Completeness**: If a solution exists, a backtracking algorithm will find it. However, the efficiency can vary, and in the worst case, it may require exponential time.
+
+The N-Queens problem is a classic combinatorial problem in which the goal is to place (N) chess queens on an (N  X  N\) chessboard so that no two queens threaten each other. This means no two queens can share the same row, column, or diagonal. The problem has a rich history in computer science and artificial intelligence due to its complexity and the way it exemplifies the use of backtracking algorithms.
+
+### N-Queens Problem Explained:
+
+1. **Chessboard Layout**: An \(N \times N\) grid where \(N\) queens must be placed.
+2. **Constraints**: Queens cannot attack each other, which translates to the following rules:
+   - No two queens can be in the same row.
+   - No two queens can be in the same column.
+   - No two queens can be on the same diagonal (both main diagonals and anti-diagonals).
+
+### Backtracking in N-Queens:
+
+Backtracking is an algorithmic technique for solving constraint satisfaction problems like the N-Queens problem. It incrementally builds candidates to the solutions and abandons a candidate as soon as it determines that the candidate cannot possibly lead to a valid solution.
+
+#### Backtracking Algorithm Steps:
+
+1. **Start with an empty board**.
+2. **Place a queen in the first row**.
+3. **Move to the next row**:
+   - Try placing a queen in each column one by one.
+   - Check if placing the queen in a column is safe (i.e., no other queen can attack).
+   - If safe, place the queen and move to the next row.
+   - If not safe, move to the next column in the same row.
+4. **Repeat until either all queens are placed** (solution found) or no safe columns are available in the current row (trigger backtracking).
+5. **Backtrack**:
+   - If no valid position is found in a row, remove the last placed queen (backtrack) and move to the previous row.
+   - Try the next possible position in the previous row and continue.
+
+---
+
+### Q2. Define Game theroy, differentiate between stochastic and partial games with examples.
+- Game theory, branch of applied mathematics that provides tools for analyzing situations in which parties, called players, make decisions that are interdependent.
+- This interdependence causes each player to consider the other player's possible decisions, or strategies, and to evaluate the consequences of their decisions.
+- It provides a framework for analyzing situations in which the outcome for each participant or "player" depends not only on their own decisions but also on the decisions made by others.
+- The primary goal of game theory is to determine the optimal strategies for players to maximize their payoffs given the strategies chosen by others.
+
+**Key Concepts:**
+
+- **Game**: A structured scenario involving multiple players making decisions that affect each other’s outcomes.
+- **Rules**: The formal guidelines that define the allowable actions, sequence of play, and how outcomes are determined in a game.
+- **Strategy**: A comprehensive plan detailing a player's actions in every possible situation within the game.
+- **Move**: A specific action taken by a player at a particular point in the game.
+- **Payoff**: The reward or outcome a player receives based on the combination of strategies chosen by all players.
+
+
+### Stochastic Games
+**Stochastic Games** are games where the outcome and transitions between game states are influenced by random events. Players must make decisions considering the probabilistic nature of these events.
+
+### Partial Games
+**Partial Games** are games where players have incomplete information about the game state or other players' actions. Players must make decisions based on limited knowledge and often rely on inference and deduction.
+
+### Stochastic Games (5 Points)
+
+1. **Random Events:**  The core element is the presence of random events that influence the outcome. These events are typically governed by probability distributions (e.g., dice rolls, card draws).
+2. **Complete Information:**  Despite randomness, players have full knowledge of the game's state (board configuration, player positions, etc.) and available actions at each turn.
+3. **Deterministic After Randomness:**  Once the random event resolves (dice stop rolling, card gets revealed), the outcome of the action becomes deterministic based on the game's rules.
+4. **Strategic with Chance:**  While there's an element of chance, players can employ strategies that consider probabilities and make informed decisions to maximize their expected rewards. 
+5. **Applications:**  Stochastic games are used in various fields like economics (modeling market fluctuations), AI (training bots for games with random elements), and  reliability engineering (analyzing systems with random failures).
+6. **Example:** Imagine a game of Backgammon. You know all the legal moves and the board state, but the outcome of your turn depends on the dice roll (a random event).
+
+### Partially Observable Games (5 Points)
+
+1. **Limited Information:**  Players don't have a complete picture of the game's state. They rely on observations (e.g., sensor readings, opponent's actions) to infer the hidden information.
+2. **Focus on Observation:**  A key aspect is analyzing observations to build a mental model of the hidden state and update it as new information becomes available.
+3. **Uncertainty and Decision Making:**  Due to limited knowledge, players face uncertainty when making decisions.  Strategies often involve balancing exploration (gathering information) and exploitation (using current knowledge for gain). 
+4. **Information Asymmetry:**  In some partially observable games, players might have different levels of information. This asymmetry can be a crucial strategic element. 
+5. **Applications:**  Partially observable games are relevant in robotics (planning actions with limited sensor data), security (detecting intrusions based on partial observations), and  real-time strategy games (fog of war limitations).
+6. **Example:** Imagine a hide-and-seek game. The seeker knows the rules and the playing area, but they don't know the hider's exact location (limited information).
+
+---
+
+### Q3. Explain limitations of game search algorithm
+
+
+1. **Computational Complexity**: The search space grows exponentially with the number of moves, making it computationally intensive.
+2. **Limited Lookahead**: Algorithms can only look ahead a limited number of moves due to resource constraints, potentially missing better long-term strategies.
+3. **Heuristic Evaluation**: Heuristic functions are approximations and might not accurately reflect the true value of game states.
+4. **Handling Uncertainty**: Dealing with stochastic elements and partial information in games adds complexity to the algorithms.
+5. **Scalability Issues**: Real-time decision-making requirements can exceed the capabilities of search algorithms, making them impractical for some applications.
+6. **Opponent Modeling**: Predicting an opponent's moves accurately is challenging, especially if the opponent uses unpredictable or adaptive strategies.
+
+---
+
+### Q4. Write Minimax search algorithm fro two players. How use of alpha and beta cutoffs will improve performance     
+
+### Minimax Search Algorithm
+
+The Minimax algorithm is a recursive decision-making strategy used in two-player games such as chess, checkers, or tic-tac-toe. It aims to find the optimal move for a player assuming that the opponent also plays optimally. The algorithm operates under the following principles:
+
+1. **Game Tree Representation**:
+    - The game is represented as a tree where each node represents a game state.
+    - The root node is the current game state.
+    - The children of each node are possible game states resulting from legal moves.
+
+2. **Players**:
+    - **Maximizing Player (Max)**: This player aims to maximize their score.
+    - **Minimizing Player (Min)**: This player aims to minimize the maximizing player's score.
+
+3. **Recursive Process**:
+    - **Base Case**: The recursion terminates when a terminal state (end of the game) or a predefined depth is reached. The terminal state is evaluated to return a score.
+    - **Maximizing Player’s Turn**: The algorithm selects the move with the highest score. It recursively evaluates each possible move and chooses the maximum score.
+    - **Minimizing Player’s Turn**: The algorithm selects the move with the lowest score. It recursively evaluates each possible move and chooses the minimum score.
+
+4. **Algorithm Steps**:
+    1. **Generate the Game Tree**: Create a tree of all possible moves from the current state.
+    2. **Evaluate Terminal States**: Assign scores to terminal states based on the outcome (win, lose, draw).
+    3. **Backpropagate Scores**:
+        - For each node, if it’s the maximizing player’s turn, select the maximum score from the children.
+        - If it’s the minimizing player’s turn, select the minimum score from the children.
+    4. **Choose Optimal Move**: From the root, the maximizing player chooses the move corresponding to the maximum score among the children.
+
+5. **Alpha-Beta Pruning (Optimization)**:
+    - **Alpha**: The best score that the maximizing player can guarantee.
+    - **Beta**: The best score that the minimizing player can guarantee.
+    - As the algorithm progresses, it updates alpha and beta values and prunes branches of the game tree that cannot influence the final decision, thus reducing the number of nodes evaluated.
+
+### Alpha-Beta Pruning
+
+Alpha-Beta Pruning is an optimization technique for the Minimax algorithm that reduces the number of nodes evaluated in the search tree. It keeps track of two values, alpha and beta, which represent the minimum score that the maximizing player is assured of and the maximum score that the minimizing player is assured of, respectively.
+
+- **Alpha**: The best value that the maximizing player can guarantee.
+- **Beta**: The best value that the minimizing player can guarantee.
+
+### Alpha-Beta Pruning Algorithm
+
+1. **Initialization**:
+    - Initialize alpha to negative infinity.
+    - Initialize beta to positive infinity.
+
+2. **Alpha and Beta Updates**:
+    - During the maximizing player’s turn, update alpha.
+    - During the minimizing player’s turn, update beta.
+
+3. **Pruning**:
+    - If the current node's value is worse than the best option for the opponent, stop evaluating that branch (prune it).
+
+### How Alpha-Beta Pruning Improves Performance
+
+1. **Reduces Number of Nodes Evaluated**: By pruning branches that won't affect the final decision, the algorithm skips unnecessary evaluations, thereby reducing the number of nodes it needs to process.
+
+2. **Increases Efficiency**: Alpha-beta pruning allows the Minimax algorithm to search deeper in the game tree within the same amount of time, potentially finding better moves.
+
+3. **Maintains Optimality**: Alpha-beta pruning does not affect the final result of the Minimax algorithm. It guarantees the same optimal move as the unpruned Minimax algorithm but in a more efficient manner.
+
+4. **Practical Impact**: In complex games like chess, where the number of possible moves is vast, alpha-beta pruning can significantly reduce computation time, making it feasible to run the algorithm within reasonable time limits.
+
+By incorporating alpha-beta pruning, the Minimax algorithm becomes much more practical for real-world applications, especially in games with large search spaces.
+
+### Q4. Define is constraint satisfaction problem, State the types of consistencies. Solve the following Crypt Arithmetic Problem.
+SEND
++ MORE
+MONEY
+
+
+A Constraint Satisfaction Problem (CSP) is a computational problem where the goal is to find a solution that satisfies a set of constraints. It typically involves:
+- A set of variables, each of which must be assigned a value from a specific domain.
+- Constraints that define allowable combinations of values for subsets of variables.
+
+In a CSP, the challenge is to find an assignment of values to variables such that all constraints are satisfied. CSPs arise in various fields, including artificial intelligence, operations research, and combinatorial optimization.
+
+### Components of a CSP:
+
+1. **Variables**: Represent entities that need to be assigned values to satisfy constraints.
+2. **Domains**: Each variable has a domain, which is the set of possible values it can take.
+3. **Constraints**: Rules that specify permissible combinations of values for subsets of variables.
+
+### Characteristics of a CSP:
+
+1. **Solution Space**: The set of all possible assignments of values to variables.
+2. **Feasible Solutions**: Assignments of values to variables that satisfy all constraints.
+3. **Optimal Solutions**: Feasible solutions that optimize an objective function (if present).
+4. **Complexity**: CSPs can be challenging to solve due to the combinatorial explosion of possible assignments.
+
+### Types of Consistencies
+
+1. **Node Consistency**: Each variable's domain satisfies its unary constraints (constraints involving only one variable).
+2. **Arc Consistency**: Each variable's domain satisfies its binary constraints (constraints involving two variables).
+3. **Path Consistency**: Extends arc consistency to enforce consistency over multiple variables simultaneously.
+4. **k-Consistency**: Generalization of arc consistency to enforce consistency over subsets of k variables.
+
+- The graph coloring problem is a classic example of a Constraint Satisfaction Problem (CSP). In this problem, the goal is to assign colors to the vertices of a graph in such a way that no two adjacent vertices share the same color. 
+
+### Explain any two types of Constrains in detail
+
+
+### Unary Constraints:
+
+Unary constraints involve a single variable and impose restrictions on its possible values. These constraints are typically inherent properties of the variable itself and don't involve other variables.
+
+**Example:**
+Consider a CSP where we have a variable representing the temperature (Temp) of a room. The unary constraint might be that the temperature must be within a certain range, say between 18°C and 25°C.
+
+**Explanation:**
+- **Variable**: Temp (representing the temperature).
+- **Domain**: The possible values for Temp (18, 19, ..., 25).
+- **Unary Constraint**: Temp must be within the range [18, 25].
+
+**Role in CSPs:**
+Unary constraints help in reducing the search space by limiting the possible values a variable can take, thereby simplifying the problem-solving process.
+
+### Binary Constraints:
+
+Binary constraints involve two variables and specify relationships between them. These constraints restrict the combinations of values that can be assigned to the variables simultaneously.
+
+**Example:**
+Consider a CSP where we have two variables representing the colors of adjacent regions on a map. The binary constraint might be that adjacent regions must have different colors.
+
+**Explanation:**
+- **Variables**: Color1, Color2 (representing the colors of adjacent regions).
+- **Domain**: Possible colors (e.g., Red, Green, Blue).
+- **Binary Constraint**: Color1 ≠ Color2 (adjacent regions must have different colors).
+
+**Role in CSPs:**
+Binary constraints play a crucial role in modeling relationships between variables. They help in guiding the search process by eliminating inconsistent assignments and guiding towards valid solutions.
+
+
+### Example:
+
+Consider the following graph:
+
+```
+      A
+     / \
+    B---C
+   / \ / \
+  D---E---F
+```
+
+We need to assign colors to the vertices (A, B, C, D, E, F) so that no adjacent vertices have the same color.
+
+### Formulation:
+
+1. **Variables**: Each vertex represents a variable. For example, A, B, C, D, E, F are variables.
+2. **Domains**: The domain for each variable is the set of possible colors. Let's assume the colors are {Red, Green, Blue}.
+3. **Constraints**: The constraints ensure that no two adjacent vertices have the same color.
+
+### Constraints:
+
+- A ≠ B, A ≠ C
+- B ≠ A, B ≠ C, B ≠ D, B ≠ E
+- C ≠ A, C ≠ B, C ≠ E, C ≠ F
+- D ≠ B, D ≠ E
+- E ≠ B, E ≠ C, E ≠ D, E ≠ F
+- F ≠ C, F ≠ E
+
+### Solution:
+
+By applying constraint satisfaction techniques, we can find a solution to the graph coloring problem. One possible solution for the given graph is:
+
+```
+      A (Red)
+     / \
+    B---C (Green)
+   / \ / \
+  D---E---F (Blue)
+```
+
+In this solution, no adjacent vertices share the same color, satisfying all constraints. This assignment is valid for the graph coloring problem.
+
+### Cryptarithmetic Problem Solution
+
+To solve the cryptarithmetic problem SEND + MORE = MONEY, we'll follow these steps:
+
+1. Assign domains to variables: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}.
+2. Apply constraints:
+    - Each letter represents a unique digit.
+    - The leftmost letters (S, M) cannot be 0.
+    - The sum of digits in corresponding positions should match.
+3. Apply consistency techniques if necessary.
+4. Search for a solution satisfying all constraints.
+
+Let's solve it:
+
+```
+  S E N D
++ M O R E
+---------
+M O N E Y
+```
+
+We start with brute force:
+
+- M can't be 0, so M must be 1.
+- Now we try different values for D, N, E, Y, O, R, and S to satisfy the equation:
+  - S = 9, E = 5, N = 6, D = 7, O = 0, R = 8, Y = 2.
+
+The solution is:
+```
+  9 5 6 7
++ 1 0 8 5
+---------
+1 0 6 5 2
+```
+
+So, SEND + MORE = 9567 + 1085 = 10652 (MONEY).
+
+---
+
+To solve the cryptarithmetic problem BASE + BALL = GAMES, we'll follow these steps:
+
+1. Assign domains to variables: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}.
+2. Apply constraints:
+    - Each letter represents a unique digit.
+    - The leftmost letters (B, G) cannot be 0.
+    - The sum of digits in corresponding positions should match.
+3. Apply consistency techniques if necessary.
+4. Search for a solution satisfying all constraints.
+
+Let's solve it:
+
+```
+  B A S E
++ B A L L
+---------
+G A M E S
+```
+
+We start with brute force:
+
+- B and G can't be 0, so they must be 1.
+- Now we try different values for A, S, E, L, M, and E to satisfy the equation:
+  - A = 2, S = 3, E = 4, L = 6, M = 7, and G = 1.
+
+The solution is:
+```
+  1 2 3 4
++ 1 2 6 6
+---------
+1 4 9 0 8
+```
+
+So, BASE + BALL = 1234 + 1266 = 24908 (GAMES).
+
+
+------------------------------------------------------
+
+
+### Q5. What are the issues that need to be addressed for solving CSP efficiently? Explain the solutions of them.
+
+Constraint Satisfaction Problems (CSPs) can be computationally expensive to solve, especially for large and complex problems. Here are some key issues that hinder efficient solving and their corresponding solutions:
+
+1. **Problem Size and Complexity:**
+
+   * **Issue:** The number of variables and constraints significantly impacts the search space for solutions. Exploring all possibilities becomes time-consuming for large problems.
+   * **Solutions:**
+      * **Problem Decomposition(Slice and Dice):** Break down the problem into smaller, more manageable subproblems. Solve these subproblems independently or hierarchically and combine the solutions.
+      * **Variable and Constraint Ordering(Focus on What Matters):** Prioritize exploring variables or evaluating constraints that have the most significant impact on reducing the search space. 
+
+2. **Getting Stuck in Dead Ends:**
+
+   * **Problem:** Sometimes, our solving method hits a dead end, and we waste time backtracking.
+   * **Solutions:**
+      * **Look Ahead:** Before making a move, check if it might cause problems down the road. If so, don't do it and backtrack right away.
+      * **Spread the Word:** When we make a move, see what it means for other parts of the puzzle. If it messes things up elsewhere, we know to back off.
+
+
+3. **Incompleteness of Information:**
+
+   * **Problem:** Sometimes, we don't have all the rules we need to solve the problem.
+   * **Solutions:**
+      * **Use What We Know:** Even if we don't have all the rules, we can still use our best guesses and hunches to get closer to the solution.
+      * **Learn from Mistakes:** When we hit a dead end, figure out why it happened. Then, we'll know what to avoid next time.
+
+4. **Assigning the Wrong Values:**
+
+   * **Problem:** Giving the wrong values to variables messes things up and makes the problem harder to solve, increasing backtracking and computation time
+   * **Solution:**
+      * **Keep Things Consistent:** Make sure that every time we assign a value, it doesn't break any of the rules we've set so far.
+      * **Maintaining Arc Consistency:** Enforce consistency between pairs of variables throughout the search process. This ensures that no pair of variable assignments violates any constraints.
+
+
+By addressing these issues and applying the corresponding solutions, Constraint Satisfaction Problem solvers can achieve significant efficiency gains. The specific techniques chosen will depend on the characteristics of the particular CSP being tackled.
