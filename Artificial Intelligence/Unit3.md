@@ -1,32 +1,7 @@
 # Adversarial Search and Games
 
 
-### Q5. What are the issues that need to be addressed for solving CSP efficiently? Explain the solutions of them.
-### Q6. Explain heuristic function that can be used in cutting off search in detail.
-### Q7. Explain Alpha-Beta tree search and cutoff procedure in detail with an example.
 
-### Q11. Explain Monte Carlo Tree Search with all steps and Demonstrate with one Example.
-### 
-### Q12. 
-### Q13. Explain Alpha Beta Tree search and cutoff procedure in detail with example.
-### Q14. What are the issues that need to be addressed for solving esp efficiently? Explain the solutions to them.
-### Q15. Explain in detail the concepts of back tracking and constraint propagation and solve the N-queen problem using these algorithms.
-### Q16. Write a short note on Monte Carlo Tree search and list its limitations.
-### Q17. Apply constraint satisfaction method to solve following Problem
-SEND + MORE = MONEY. (TWO TWO FOUR, CROSS+ ROADS DANGER)
-### Q18. What are the issues that need to be addressed for solving CSP efficiently? Explain the Solutions to them.
-### Q19. Explain heuristic function that can be used in cutting off search in detail.
-### Q19. Explain alpha-beta tree search and cutoff procedure in detail with an example..
-### Q19. Define constraints in CSPs. Explain any two types of Constrains in detail.
-### Q19. Explain min max and alpha beta pruning algorithm for adversarial search with example.
-### Q19. Define and explain constraints satisfaction problem.
-### Q19. Explain with example graph coloring problem.
-### Q19. How Al technique is used to solve tic-tac-toe problem.
-### Q19. Explain Wumpus world environment giving its PEAS description.
-
-
-
-----
 
 ### Q1.List all problem solving strategies. What is backtracking, explain with n queen problem
 
@@ -211,6 +186,12 @@ Alpha-Beta Pruning is an optimization technique for the Minimax algorithm that r
 
 By incorporating alpha-beta pruning, the Minimax algorithm becomes much more practical for real-world applications, especially in games with large search spaces.
 
+**Example:**
+
+<img src="./images/AlphaBeta.png" width="800">
+
+
+
 ### Q4. Define is constraint satisfaction problem, State the types of consistencies. Solve the following Crypt Arithmetic Problem.
 SEND
 + MORE
@@ -281,7 +262,7 @@ Binary constraints play a crucial role in modeling relationships between variabl
 
 ### Example:
 
-Consider the following graph:
+Consider the following graph: Graph Coloring Example
 
 ```
       A
@@ -435,3 +416,98 @@ Constraint Satisfaction Problems (CSPs) can be computationally expensive to solv
 
 
 By addressing these issues and applying the corresponding solutions, Constraint Satisfaction Problem solvers can achieve significant efficiency gains. The specific techniques chosen will depend on the characteristics of the particular CSP being tackled.
+
+
+### Q6. Explain heuristic function that can be used in cutting off search in detail.
+
+In the context of search algorithms, a heuristic function is used to estimate the cost or value of a particular state or node. Heuristics help in making decisions about which paths to explore further and which to prune or cut off, significantly improving search efficiency.
+
+### Key Concepts of Heuristic Functions
+
+1. **Evaluation Function (Heuristic Function):**
+   - Provides an estimate of the "goodness" of a node.
+   - Helps in deciding the best move or path in search algorithms.
+
+2. **Cutoff Heuristic:**
+   - A condition that stops the search early based on the heuristic function's value.
+
+### Examples of Heuristic Functions
+
+1. **Informed Search Algorithms:**
+   - **A* Search Algorithm:** Uses a heuristic function ( h(n) ) combined with the path cost  g(n) to evaluate nodes. The function  f(n) = g(n) + h(n)  guides the search towards the goal efficiently.
+   - **Greedy Best-First Search:** Uses  h(n)  alone to prioritize nodes closest to the goal.
+
+2. **Game Playing Algorithms:**
+   - **Minimax with Alpha-Beta Pruning:** Although primarily a pruning technique, heuristics can be integrated to enhance decision-making.
+   - **Evaluation Functions in Games:** Functions that estimate the value of a game state, like the material balance in chess (counting the value of pieces).
+
+### How Heuristic Functions Cut Off Search
+
+1. **Depth Limitation:**
+   - **Depth Limit Cutoff:** Limit the search to a certain depth. Use a heuristic evaluation to estimate the value of nodes at this depth, cutting off deeper exploration.
+
+2. **Threshold Cutoff:**
+   - **Alpha-Beta Pruning:** Use α (alpha) and β (beta) values as thresholds. If the current node's heuristic value exceeds these thresholds, prune the subtree.
+
+3. **Dynamic Cutoff:**
+   - **Quiescence Search:** In game algorithms, avoid cutoff in "unstable" positions. Continue searching until a "quiet" position is reached.
+   - **Adaptive Depth:** Dynamically adjust the depth based on the heuristic evaluation of the current node.
+
+
+### Q7.Write a short note on Monte Carlo Tree search and list its limitations. How Al technique is used to solve tic-tac-toe problem.
+
+Monte Carlo Tree Search (MCTS) is a powerful algorithm used for decision-making in games, simulations, and other applications where perfect information  isn't available. It balances exploration (finding new possibilities) and exploitation (leveraging what's already known) through a series of simulations. Here's a breakdown of the key steps involved:
+
+**1. Selection:**
+
+* The algorithm starts at the root node representing the initial game state.
+* It uses a selection policy (like Upper Confidence Bound Applied to Trees - UCT) to choose the most promising child node to explore further. This policy balances visiting frequently successful nodes (exploitation) with exploring less-visited nodes that might hold potential (exploration).
+
+**2. Expansion:**
+
+* If the chosen child node isn't fully expanded (has unexplored child states), a new child node representing a possible next action is created. This expands the tree and allows for exploration of new possibilities.
+
+**3. Simulation:**
+
+* From the newly expanded node (or an existing unexplored child), a simulation of the game or process is run. This simulation can be random or incorporate some heuristics.
+* The simulation continues until a terminal state (end of the game or decision point) is reached.
+
+**4. Backpropagation:**
+
+* The outcome of the simulation (win/loss/reward) is propagated back up the tree, updating the win/loss statistics of all nodes along the path. Nodes that led to successful outcomes (wins in a game) are "rewarded," while those leading to failures are "penalized."
+
+**5. Iteration:**
+
+* Steps 1-4 are repeated for a predefined number of iterations. This allows the algorithm to explore different branches of the tree and gather information about the potential outcomes of various actions.
+
+**Example: Tic-Tac-Toe**
+
+Imagine you're playing Tic-Tac-Toe (X's turn) and the board looks like this:
+
+```
+| X |   |   |
+|---|---|---|
+|   | O |   |
+```
+
+1. **Selection:** Starting from the root node (empty board), MCTS uses UCT to choose the most promising move. It might explore frequently successful moves like placing X in the center or corners, while also considering less explored options.
+2. **Expansion:** If a chosen child node represents a board state where X hasn't placed their turn yet, the algorithm expands that node by creating child nodes for each possible legal move X can make (e.g., placing X in the top left corner, top right corner, etc.).
+3. **Simulation:** From each newly created child node (representing a board state with X's move), the algorithm simulates the rest of the game using random moves (or incorporating heuristics to prioritize winning moves). This simulation continues until someone wins or the board is full (a draw).
+4. **Backpropagation:** The outcome of each simulation (win/loss/draw) is propagated back up the tree. If X wins in a simulation starting from a specific child node, the win count for that node and its parent nodes increases. Similarly, losses or draws update the statistics accordingly.
+5. **Iteration:** Steps 1-4 are repeated for many iterations. As the algorithm explores and simulates more, it builds a better understanding of which moves tend to lead to more favorable outcomes for X (winning or drawing).
+
+By the end of the iterations, MCTS will likely favor moves that have statistically led to better results in the simulations, guiding you towards a strategically strong move for your next turn.
+
+**Benefits of MCTS:**
+
+* **Balances Exploration and Exploitation:** 
+* **Adapts to Unknown Environments:**
+* **Strong Performance in Complex Games:** 
+
+**Limitation of MCTS**
+
+**High Computational Cost:** MCTS can be computationally intensive, especially for games or problems with large state spaces and deep trees
+
+**Memory Consumption:** MCTS can consume a significant amount of memory to store the search tree.
+
+**Slow Convergence:** MCTS can converge slowly to optimal solutions, particularly in complex or highly strategic games.
