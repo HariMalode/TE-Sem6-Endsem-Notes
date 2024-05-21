@@ -306,3 +306,97 @@ Overall, virtual clustering in cloud computing enhances the reliability, scalabi
 
 ### Q9. Describe CPU, Network and Storage Virtualization?
 
+- **CPU virtualization:**
+
+- CPU virtualization enables multiple virtual machines (VMs) to share the processing power of a single physical CPU or multiple CPUs.
+- It allows for the creation of isolated execution environments for each VM, ensuring that they operate independently of each other.
+- The hypervisor, also known as the virtual machine monitor (VMM), is responsible for managing CPU resources and scheduling CPU time for each VM.
+- It abstracts the physical CPU cores and presents virtual CPUs (vCPUs) to VMs, which can run guest operating systems and applications as if they were running on dedicated hardware.
+
+
+**Advantages:**
+- **Resource Optimization**: Efficiently utilize CPU resources across multiple VMs.
+- **Isolation and Security**: Ensure that VMs operate independently and securely.
+- **Scalability**: Dynamically allocate CPU resources to match workload demands.
+
+**Disadvantages:**
+- **Overhead**: Introduces a slight performance overhead due to the virtualization layer.
+- **Complexity**: Requires management and configuration of CPU resources for optimal performance.
+- **Compatibility**: Certain CPU features may not be available or fully supported in virtualized environments.
+
+
+*Network and Storage Virtualization: Refer Q2.*
+
+### Q10. Draw and explain Virtualization Architecture in detail?
+
+Virtualization architecture encompasses various components and layers that work together to enable virtualization in cloud computing environments. Below is a detailed explanation of each component along with a simplified diagram illustrating virtualization architecture:
+
+
+<img src="./images/VirtArchi.png" width="600" height ="400">
+
+
+Virtualization architecture is a framework that allows multiple operating systems and applications to run on a single physical server by abstracting the hardware and distributing its resources among virtual machines (VMs). Here's a detailed explanation of each component involved in virtualization architecture:
+
+1. **Server Hardware**: This is the physical hardware that provides the computational resources such as CPU, memory, storage, and network interfaces. It includes the physical servers where virtualization occurs.
+
+2. **Storage Infrastructure**: This includes storage devices like hard drives, SSDs, and storage area networks (SANs) that store data for the VMs and applications. It provides the necessary storage capacity and performance for the virtual environment.
+
+3. **Host OS (Host Operating System)**: The host OS is the underlying operating system that runs on the server hardware. It manages hardware resources and provides services to the hypervisor. In some virtualization environments, there might not be a traditional host OS if the hypervisor is a bare-metal type.
+
+4. **Hypervisor**: The hypervisor, also known as a virtual machine monitor (VMM), is the software layer responsible for creating and managing VMs. There are two types of hypervisors:
+   - **Type 1 Hypervisor (Bare-metal)**: Runs directly on the server hardware, providing better performance and efficiency. Examples include VMware ESXi, Microsoft Hyper-V, and Xen.
+   - **Type 2 Hypervisor (Hosted)**: Runs on top of a host OS, making it easier to install but generally less efficient than Type 1. Examples include VMware Workstation and Oracle VirtualBox.
+
+5. **Virtual Machines (VMs)**: These are software-based emulations of physical computers. Each VM operates as if it were a physical machine, with its own virtual hardware components like CPU, memory, and network interfaces.
+
+6. **Guest OS (Guest Operating System)**: The guest OS runs inside the VM and is independent of the host OS. Each VM can have a different guest OS, allowing for diverse environments on a single physical server.
+
+7. **Binary/Libraries**: These are the binary executables and software libraries required by applications running within the guest OS. They include system libraries, application binaries, and other necessary dependencies.
+
+8. **Applications (APP)**: These are the end-user applications that run within the guest OS on the VMs. They can be any software that end-users or services require, ranging from web servers and databases to office applications and custom software.
+
+Here’s a visual representation and detailed explanation of the virtualization architecture:
+
+```plaintext
++--------------------------------------------------+
+|                   Applications                    |
+|                  (APPs on VMs)                    |
+|       +---------+  +---------+  +---------+       |
+|       | App 1   |  | App 2   |  | App 3   |       |
+|       +---------+  +---------+  +---------+       |
+|       | Binaries|  | Binaries|  | Binaries|       |
+|       | & Libs  |  | & Libs  |  | & Libs  |       |
+|       +---------+  +---------+  +---------+       |
+|       | Guest   |  | Guest   |  | Guest   |       |
+|       | OS 1    |  | OS 2    |  | OS 3    |       |
+|       +---------+  +---------+  +---------+       |
+|              Virtual Machines (VMs)               |
++--------------------------------------------------+
+|                    Hypervisor                     |
++--------------------------------------------------+
+|                Host Operating System              |
++--------------------------------------------------+
+|                 Server Hardware                   |
+| (CPU, Memory, Network, Storage Infrastructure)    |
++--------------------------------------------------+
+```
+
+**Explanation**:
+
+- **Server Hardware**: This is the foundation of the virtualization architecture. It provides the necessary physical resources that are virtualized and shared among multiple VMs.
+
+- **Storage Infrastructure**: It connects to the server hardware, providing the required data storage capacity and performance. It can be local storage or network-based storage solutions.
+
+- **Host Operating System**: It interfaces with the server hardware, managing and allocating physical resources. In some configurations, this layer may be omitted if a Type 1 hypervisor is used.
+
+- **Hypervisor**: This crucial layer manages the virtual machines, allocating physical resources to each VM. It ensures isolation, security, and efficient resource use. Type 1 hypervisors operate directly on hardware, while Type 2 run on a host OS.
+
+- **Virtual Machines**: Each VM is a complete system with its own virtual hardware. The hypervisor abstracts the physical hardware and presents virtualized hardware to each VM.
+
+- **Guest OS**: Installed on each VM, the guest OS operates as if it were on physical hardware. It manages applications and interfaces with the virtual hardware provided by the hypervisor.
+
+- **Binary/Libraries**: Essential for running applications, these include system libraries and binaries specific to each guest OS. They provide the runtime environment needed by applications.
+
+- **Applications**: The final layer, applications run on the guest OS within each VM. This layer represents the end-user software and services that utilize the underlying virtualization infrastructure.
+
+By leveraging this architecture, virtualization allows for better resource utilization, flexibility, and scalability, enabling multiple independent environments to run on a single physical server.
